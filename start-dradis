@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "Sourcing environment..."
+source .env
+
+echo "Checking for local data volume directory $DATA_VOLUME"
+if [ ! -d "$DATA_VOLUME" ]; then
+  echo "Creating data volume directory"
+  mkdir $DATA_VOLUME
+  echo "Data volume $DATA_VOLUME created"
+else
+  echo "Data volume already exists"
+fi
+
+echo "Checking for existing container $CONTAINER_NAME"
+if [ ! "$(docker ps -a | grep $CONTAINER_NAME)" ]; then
+  echo "Starting new container: $CONTAINER_NAME"
+  docker run --name $CONTAINER_NAME -p $HOST_PORT:3000 -d --volume "$(pwd)/$DATA_VOLUME:/dbdata" ikuturso/dradis
+elif [ "$(docker ps | grep $CONTAINER_NAME)" ]; then
+  echo "Currently running container: $CONTAINER_NAME"
+else
+  echo "Starting existing container: $CONTAINER_NAME"
+  docker start $CONTAINER_NAME
+fi
+
+echo "Opening Dradis in default web browser, wait a few seconds while the Rails server starts"
+
+open http://0.0.0.0:$HOST_PORT
