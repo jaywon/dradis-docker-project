@@ -6,6 +6,10 @@ For managing multiple instances of single user Dradis Community Edition to manag
 ### General Use
 Allow a user to easily configure `HOST_PORT`, `DATA_VOLUME` and `CONTAINER_NAME` via `.env` file and use a few simple scripts to spin up and down multiple different recon environments as they work across projects.
 
+### Pre-requisites
+* Docker
+* Mac/Linux
+
 ### Install and Setup
 1. Clone Repo: `git clone https://github.com/jaywon/dradis-docker-recon-launcher your-project-name`
 1. Change into project directory: `cd your-project-name`

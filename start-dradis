@@ -31,4 +31,13 @@ do
 done
 echo "Opening Dradis in default web browser, wait a few seconds while the Rails server starts"
 
-open http://0.0.0.0:$HOST_PORT
+URL=http://0.0.0.0:$HOST_PORT
+if [ "$(uname)" == "Darwin" ]; then
+  open $URL
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  xdg-open $URL
+else
+  echo "Operating system not supported for browser launch, please go to $URL in your browser"
+fi
+
+echo "Happy Hacking :)"
