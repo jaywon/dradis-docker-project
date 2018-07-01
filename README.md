@@ -1,7 +1,7 @@
 # Docker Dradis Recon Launcher
 
 ### Purpose
-For managing multiple instances of single user Dradis Community Edition to do manage individual recon workflow.
+For managing multiple instances of single user Dradis Community Edition to manage individual recon workflow across multiple projects.
 
 ### General Use
 Allow a user to easily configure `HOST_PORT`, `DATA_VOLUME` and `CONTAINER_NAME` via `.env` file and use a few simple scripts to spin up and down multiple different recon environments as they work across projects.
