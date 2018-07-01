@@ -20,5 +20,3 @@ Allow a user to easily configure `HOST_PORT`, `DATA_VOLUME` and `CONTAINER_NAME`
 **NOTE:** The next time you want to run the project simply run `./start-dradis` again and it will detect if you had a previously created container and use it, or create a new one if your container has been destroyed.
 
 **NOTE:** Using a mounted volume and local data directory to the project your recon work stays safe and portable even if your container is destroyed.
-
-**NOTE:** The browser will show a 404 for a a few seconds while the Dradis Rails server is starting

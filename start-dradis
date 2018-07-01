@@ -23,6 +23,12 @@ else
   docker start $CONTAINER_NAME
 fi
 
+echo "Waiting for Dradis server to start..."
+STATUS=null
+while [ "$STATUS" != "302" -a "$STATUS" != "200" ]
+do
+  STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://0.0.0.0:$HOST_PORT)
+done
 echo "Opening Dradis in default web browser, wait a few seconds while the Rails server starts"
 
 open http://0.0.0.0:$HOST_PORT
