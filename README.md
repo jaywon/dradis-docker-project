@@ -25,4 +25,6 @@ Allow a user to easily configure `HOST_PORT`, `DATA_VOLUME` and `CONTAINER_NAME`
 
 **NOTE:** Using a mounted volume and local data directory to the project your recon work stays safe and portable even if your container is destroyed.
 
+**NOTE:** The first time you create a project it will redirect you to `/login` and prompt you to set a password and then redirect you to a login page where username is `admin` and password is the password you set.
+
 Thanks to `ikuturso` for their docker image that includes the pre-installed Dradis methodologies templates from this image: https://hub.docker.com/r/ikuturso/dradis/
